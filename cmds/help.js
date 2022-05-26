@@ -34,7 +34,7 @@ function exec(args, vars) {
 			var embed = new discord.MessageEmbed()
 			.setTitle('Help')
 			.setColor('#00ff00')
-			.setDescription(`I love Fumo\nSupport server: https://discord.gg/bingus for source code or https://discord.gg/QBvgMMR4We For the fumo-bot fork\nDeveloper: <@!${vars.config.owner}> & <@!546768454427082785>\nSource code: https://github.com/Lolbird123/bingus-bot or https://github.com/Kuukee/Fumobot\n\n**Commands:** ${cmds.join(',  ')}`);
+			.setDescription(`I love Fumo\nSupport server: https://discord.gg/bingus for bingus-bot or https://discord.gg/QBvgMMR4We For the fumo-bot fork\nDeveloper: <@!${vars.config.owner}> & <@!546768454427082785>\nSource code: https://github.com/Lolbird123/bingus-bot or https://github.com/Kuukee/Fumobot\n\n**Commands:** ${cmds.join(',  ')}`);
 			vars.msg.reply({embeds:[embed]});
 		});
 	}
