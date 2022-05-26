@@ -38,7 +38,7 @@ function exec(args, vars) {
 		.setTitle(fumoSend)
 		.setDescription("Here ya go!" + ' <@!' + vars.msg.author + '>')
 		.setImage(url='attachment://fumoSend')
-		.setTimestamp()
+		.setTimestamp();
 		vars.msg.reply({embeds:[embed], files:[finalSend]});
 		// vars.msg.reply("Here you go " + '<@!' + msg.author + '>', {files: [{attachment: config.fumoFolder + FumoSend}]});			Archived
 		vars.msg.react('✅');

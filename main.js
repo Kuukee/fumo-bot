@@ -2,15 +2,18 @@ const fs = require('fs');
 const config = require('./config.json');
 const discord = require('discord.js');
 const client = new discord.Client({intents:config.intents});
+console.log(config);
 
 client.on('ready', () => {
 	console.log(`Online as ${client.user.tag} with an id of ${client.user.id}`);
 	client.user.setActivity(`with fumos | ${config.prefix}help`);
 
-	var embed = new discord.MessageEmbed()
-	.setTitle('Am back')
-	.setColor('#ff4933');
-	client.channels.cache.get(config.logChannel).send({embeds:[embed]});
+	client.channels.fetch(config.logChannel).then(channel => {
+		var embed = new discord.MessageEmbed()
+		.setTitle('Am back')
+		.setColor('#ff4933');
+		channel.send({embeds:[embed]});
+		});
 });
 
 client.on('messageCreate', msg => {
