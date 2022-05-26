@@ -9,7 +9,7 @@ client.on('ready', () => {
 
 	var embed = new discord.MessageEmbed()
 	.setTitle('Am back')
-	.setColor('#ff4933')
+	.setColor('#ff4933');
 	client.channels.cache.get(config.logChannel).send({embeds:[embed]});
 });
 
