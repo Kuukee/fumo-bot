@@ -1,6 +1,8 @@
 const discord = require('discord.js');
 const fs = require('fs');
-const config = require('../config.json')
+//const requireDirectory = require('require-directory');
+const config = require('../config.json');
+const path = require("path");
 
 const info = {
 	name: 'fumo',
@@ -13,8 +15,9 @@ function exec(args, vars) {
 
 	function searchFumos(search) {
 		var items = [];
-		var file = fs.readdirSync(config.fumoFolder);
-		const files = file.map(file => file.toLowerCase());
+		var file = fs.readdirSync(path.resolve(__dirname, "../fumoFolder/"));
+		console.log(file);
+		var files = file.map(file => file.toLowerCase());
 		for(var file of files) {
 		  if(search.every(v => file.includes(v))) {
 			  items.push(file);
@@ -30,7 +33,7 @@ function exec(args, vars) {
 
 		var fumoSend = items[Math.floor(Math.random() * items.length)]; //gets random file from that list
 		console.log(fumoSend);
-		var finalSend = "/fumoFolder/" + fumoSend;
+		var finalSend = "./fumoFolder/" + fumoSend;
 		console.log(finalSend);
 
 		var embed = new discord.MessageEmbed()

@@ -2,7 +2,6 @@ const fs = require('fs');
 const config = require('./config.json');
 const discord = require('discord.js');
 const client = new discord.Client({intents:config.intents});
-console.log(config);
 
 client.on('ready', () => {
 	console.log(`Online as ${client.user.tag} with an id of ${client.user.id}`);

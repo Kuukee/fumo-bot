@@ -7,7 +7,7 @@ with open ('config.json') as f:
 json_dict = json.loads(x)
 
 src = json_dict['fumoFolder']
-dst = os.getcwd()+r'\fumoFolder'
+dst = os.getcwd()+r'/fumoFolder'
 print(dst)
 
 for folder, subfolders, files in os.walk(src):
