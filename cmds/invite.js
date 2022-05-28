@@ -12,7 +12,7 @@ function exec(args, vars) {
 	.setTitle('Invite')
 	.setColor('#ffcff0')
 	.setDescription(vars.config.invite);
-	vars.msg.reply({embeds:[embed]});
+	try { 	vars.msg.reply({embeds:[embed]})	} catch(err) { console.log(err); }
 }
 
 exports.info = info;

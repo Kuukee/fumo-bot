@@ -12,7 +12,12 @@ function exec(args, vars) {
 		var embed = new discord.MessageEmbed()
 		.setTitle('Restarting...')
 		.setColor('#33ff36');
-		vars.msg.reply({embeds:[embed]});
+		try { 
+			vars.msg.reply({embeds:[embed]})
+			.then(msg => {
+				setTimeout(() => msg.delete(), 3000)
+			});
+		} catch(err) { console.log(err); }
 		setTimeout(() => {
 			process.exit(0);
 		}, 250);
@@ -20,7 +25,12 @@ function exec(args, vars) {
 		var embed = new discord.MessageEmbed()
 		.setTitle('Access Denied')
 		.setColor('#ff5733');
-		vars.msg.reply({embeds:[embed]});
+		try { 
+			vars.msg.reply({embeds:[embed]})
+			.then(msg => {
+				setTimeout(() => msg.delete(), 3000)
+			});
+		} catch(err) { console.log(err); }
 	}
 }
 

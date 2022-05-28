@@ -12,7 +12,12 @@ function exec(args, vars) {
 	.setTitle('Pong!')
 	.setColor('#33ff36')
 	.setDescription(`Websocket ping: **${vars.client.ws.ping}ms**`);
-	vars.msg.reply({embeds:[embed]});
+	try { 
+		vars.msg.reply({embeds:[embed]})
+		.then(msg => {
+			setTimeout(() => msg.delete(), 3000)
+		});
+	} catch(err) { console.log(err); }
 }
 
 exports.info = info;

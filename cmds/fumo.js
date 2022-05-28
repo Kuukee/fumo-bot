@@ -58,23 +58,27 @@ function exec(args, vars) {
 			.setTitle(fumoSend)
 			.setDescription("Here ya go!" + ' <@!' + vars.msg.author + '>')
 			.setTimestamp();
-			vars.msg.reply({embeds:[embed], files:[finalSend]});
-			// vars.msg.reply("Here you go " + '<@!' + msg.author + '>', {files: [{attachment: config.fumoFolder + FumoSend}]});			Archived
-			vars.msg.react('✅');
+			try {
+				vars.msg.reply({embeds:[embed], files:[finalSend]});
+				// vars.msg.reply("Here you go " + '<@!' + msg.author + '>', {files: [{attachment: config.fumoFolder + FumoSend}]});			Archived
+				vars.msg.react('✅');
+			} catch(err) { console.log(err); }
 		} else {
-			var embed = new discord.MessageEmbed()
-			.setTitle("Sorry I couldn't find a file with that search")
-			.setDescription("Don't worry you aren't in cooldown.")
-			.setColor("#ff3c33")
-			.setTimestamp();
-			vars.msg.reply({embeds:[embed]})
-			.then(msg => {
-				setTimeout(() => msg.delete(), 3000)
-			});
-			talkedRecently.delete(vars.msg.author.id);
-			vars.msg.react('❎');
-			// vars.msg.reply("No fumo found, EPIC FAIL!||, only send one word after the command to make it easier||");			Archived
-
+			
+				var embed = new discord.MessageEmbed()
+				.setTitle("Sorry I couldn't find a file with that search")
+				.setDescription("Don't worry you aren't in cooldown.")
+				.setColor("#ff3c33")
+				.setTimestamp();
+				try {
+					vars.msg.reply({embeds:[embed]})
+					.then(msg => {
+						setTimeout(() => msg.delete(), 3000)
+					});
+					talkedRecently.delete(vars.msg.author.id);
+					vars.msg.react('❎');
+					// vars.msg.reply("No fumo found, EPIC FAIL!||, only send one word after the command to make it easier||");			Archived
+				} catch(err) { console.log(err); }
 
 		} 			
 

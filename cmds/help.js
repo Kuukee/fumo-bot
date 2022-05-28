@@ -17,13 +17,13 @@ function exec(args, vars) {
 				.setTitle('Help')
 				.setColor('#00ff00')
 				.setDescription(`Name: ${cmd.name}\nVersion: ${cmd.version}\nUsage: ${vars.config.prefix}${cmd.usage}\nDescription: ${cmd.description}`);
-				vars.msg.reply({embeds:[embed]});
+				try { 	vars.msg.reply({embeds:[embed]})	} catch(err) { console.log(err); }
 			} else {
 				var embed = new discord.MessageEmbed()
 				.setTitle('Help')
 				.setColor('#ff4933')
 				.setDescription('Command not found, or has no info.');
-				vars.msg.reply({embeds:[embed]});
+				try { 	vars.msg.reply({embeds:[embed]})	} catch(err) { console.log(err); }
 			}
 		});
 	} else {
@@ -35,7 +35,7 @@ function exec(args, vars) {
 			.setTitle('Help')
 			.setColor('#00ff00')
 			.setDescription(`I love Fumo\nSupport server: https://discord.gg/bingus for bingus-bot or https://discord.gg/QBvgMMR4We For the fumo-bot fork\nDeveloper: <@!${vars.config.owner}> & <@!546768454427082785>\nSource code: https://github.com/Lolbird123/bingus-bot or https://github.com/Kuukee/Fumobot\n\n**Commands:** ${cmds.join(',  ')}`);
-			vars.msg.reply({embeds:[embed]});
+			try { 	vars.msg.reply({embeds:[embed]})	} catch(err) { console.log(err); }
 		});
 	}
 }
