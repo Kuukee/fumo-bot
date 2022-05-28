@@ -2,7 +2,7 @@
 
 while true
 do
-    py copy.py
+    python copy.py
     node main.js
     echo "Restarting"
     sleep 2
