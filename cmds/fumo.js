@@ -48,7 +48,7 @@ function exec(args, vars) {
 		//console.log(items); //Just for debugging
 		if (items.length > 0) {
 
-			var fumoSend = items[Math.floor(Math.random() * items.length)]; //gets random file from that list
+			var fumoSend = items[Math.floor(Math.random() * items.length)].replace(/[ ]/g, '\ '); //gets random file from that list, if youre on windows you dont need the .replace function, this is mostly for linux users.
 			//console.log(fumoSend);
 			var finalSend = "./fumoFolder/" + fumoSend;
 			//console.log(finalSend);
