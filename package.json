@@ -21,6 +21,7 @@
     "homepage": "https://github.com/Lolbird123/bingus-bot#readme",
     "dependencies": {
         "discord.js": "^13.7.0",
+        "express": "^4.18.1",
         "require-directory": "^2.1.1"
     }
 }
