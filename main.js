@@ -8,7 +8,7 @@ let uptime;
 
 
 server.get("/", (_, res) => { //gets get() request from website
-	res.set("Access-Control-Allow-Origin", "*"); //sets access for all requests
+	res.set("Access-Control-Allow-Origin", "*"); //sets access for all requests on the same host
 	res.send(`${uptime}`); //sends uptime
 });
 
