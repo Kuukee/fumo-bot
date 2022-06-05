@@ -47,4 +47,9 @@ client.on('messageCreate', msg => {
 }});
 
 client.login(config.token);
-server.listen(8080);
+//express server thing
+var port = process.env.PORT || 8080; //sets port
+
+server.listen(port, function () {
+  console.log('listening on port ' + port);
+});
